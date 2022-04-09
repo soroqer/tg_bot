@@ -29,7 +29,12 @@ function editText (result){
         text += "\n 暂停交易：`" + (info.transfer_pausable == '0' ? "否 🟢`" : "能 🔴`");
         text += "\n 代理合约：`" + (info.is_proxy == '0' ? "无 🟢`" : "有 🔴`");
         text += "\n 取回权限：`" + (info.can_take_back_ownership == '0' ? "否 🟢`" : "能 🔴`");
-        text += "\n 发行总量：`" + info.total_supply.toString().match(/^\d+(?:\.\d{0,5})?/) + "`";
+        if (info.total_supply == undefined) {
+            text += "\n 发行总量：`\\--`";
+        }else{
+            text += "\n 发行总量：`" + info.total_supply.toString().match(/^\d+(?:\.\d{0,5})?/) + "`";
+        }
+
 
         text += "\n\n*持仓* `" + info.holder_count + "`\n\n";
         for (let index in info.holders) {
