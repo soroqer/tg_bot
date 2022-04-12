@@ -12,11 +12,12 @@ api.setMessageProvider(mp);
 
 api.start().then(() => {
     console.log('API is started');
+
 }).catch(console.err)
 
 api.on('update', update => {
     // 处理信息逻辑
-    console.log(update.message)
+    // console.log(update)
     let text = update.message.text
     if (text) {
         if (text.startsWith("0x") && text.length == 42) {
@@ -27,7 +28,7 @@ api.on('update', update => {
                 })
             }else{
                 const reply = tgEditer.editReply(update.message,{})
-                console.log(reply)
+                // console.log(reply)
                 api.sendMessage(reply).catch(error => console.log('caught', error))
             }
         }
