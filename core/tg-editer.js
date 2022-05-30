@@ -66,16 +66,16 @@ function editText (result){
 function editMarkup (result) {
 
     let kLineUrl = config.get('webUrl');
-    let kLineText = "K线"
-    for (let key in result) {
-        const info = result[key]
-        kLineText = info.token_symbol + "--K线";
-        for (let index in result[key].dex) {
-            const pair = result[key].dex[index].pair;
-            kLineUrl += "/#/quote?pair=" + pair;
-            break
-        }
-    }
+    let kLineText = "BFT K线详情"
+    // for (let key in result) {
+    //     const info = result[key]
+    //     kLineText = info.token_symbol + "--K线";
+    //     for (let index in result[key].dex) {
+    //         const pair = result[key].dex[index].pair;
+    //         kLineUrl += "/#/quote?pair=" + pair;
+    //         break
+    //     }
+    // }
 
     const markup = {
         inline_keyboard:[
@@ -85,7 +85,7 @@ function editMarkup (result) {
                     url:kLineUrl
                 },
                 {
-                    text:"加入 defidoor 官方群",
+                    text:"区块森林商务对接",
                     url:config.get('tgUrl')
                 }
             ]
